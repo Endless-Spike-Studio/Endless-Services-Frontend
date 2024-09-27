@@ -21,9 +21,7 @@ const theme = computed(() => {
 const menus: MenuOption[] = [
 	{
 		label: () => h(RouterLink, {
-			to: {
-				path: '/'
-			}
+			to: '/'
 		}, {
 			default: () => 'Endless Services'
 		}),
@@ -56,9 +54,7 @@ const menus: MenuOption[] = [
 				children: [
 					{
 						label: () => h(RouterLink, {
-							to: {
-								path: '/endless-proxy/newgrounds/songs'
-							}
+							to: '/endless-proxy/newgrounds/audios'
 						}, {
 							default: () => '歌曲搜索'
 						}),
