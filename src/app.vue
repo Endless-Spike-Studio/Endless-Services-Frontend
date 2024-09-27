@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { RouterLink } from '#vue-router'
-import { darkTheme, dateZhCN, lightTheme, type MenuOption, NImage, useOsTheme, zhCN } from 'naive-ui'
+import { Playlist, ServerProxy } from '@vicons/carbon'
+import { darkTheme, dateZhCN, lightTheme, type MenuOption, NIcon, NImage, useOsTheme, zhCN } from 'naive-ui'
 import logo from '~/assets/images/logo.webp'
+import newgrounds from '~/assets/images/newgrounds.webp'
 
 const osTheme = useOsTheme()
 const theme = computed(() => {
@@ -17,7 +19,13 @@ const theme = computed(() => {
 
 const menus: MenuOption[] = [
 	{
-		label: 'Endless Services',
+		label: () => h(RouterLink, {
+			to: {
+				path: '/'
+			}
+		}, {
+			default: () => 'Endless Services'
+		}),
 		key: '/',
 		icon: () => h(NImage, {
 			src: logo,
@@ -30,10 +38,20 @@ const menus: MenuOption[] = [
 	{
 		label: 'Endless Proxy',
 		key: '/endless-proxy',
+		icon: () => h(NIcon, {
+			component: ServerProxy
+		}),
 		children: [
 			{
 				label: 'Newgrounds Proxy',
 				key: '/endless-proxy/newgrounds-proxy',
+				icon: () => h(NImage, {
+					src: newgrounds,
+					class: 'rounded',
+					imgProps: {
+						class: 'size-8'
+					}
+				}),
 				children: [
 					{
 						label: () => h(RouterLink, {
@@ -43,7 +61,10 @@ const menus: MenuOption[] = [
 						}, {
 							default: () => '歌曲搜索'
 						}),
-						key: '/endless-proxy/newgrounds-proxy/songs'
+						key: '/endless-proxy/newgrounds-proxy/songs',
+						icon: () => h(NIcon, {
+							component: Playlist
+						})
 					}
 				]
 			}
