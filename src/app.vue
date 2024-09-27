@@ -43,8 +43,8 @@ const menus: MenuOption[] = [
 		}),
 		children: [
 			{
-				label: 'Newgrounds Proxy',
-				key: '/endless-proxy/newgrounds-proxy',
+				label: 'Newgrounds',
+				key: '/endless-proxy/newgrounds',
 				icon: () => h(NImage, {
 					src: newgrounds,
 					class: 'rounded',
@@ -56,12 +56,12 @@ const menus: MenuOption[] = [
 					{
 						label: () => h(RouterLink, {
 							to: {
-								path: '/endless-proxy/newgrounds-proxy/songs'
+								path: '/endless-proxy/newgrounds/songs'
 							}
 						}, {
 							default: () => '歌曲搜索'
 						}),
-						key: '/endless-proxy/newgrounds-proxy/songs',
+						key: '/endless-proxy/newgrounds/audios',
 						icon: () => h(NIcon, {
 							component: Playlist
 						})
