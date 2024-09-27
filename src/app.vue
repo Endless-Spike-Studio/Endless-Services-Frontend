@@ -69,8 +69,8 @@ const route = useRoute()
 										<n-menu :options="menus" mode="horizontal" :value="route.fullPath"/>
 									</n-layout-header>
 
-									<n-layout-content class="container mx-auto">
-										<NuxtPage class="<sm:(px-2)"/>
+									<n-layout-content class="container mx-auto !top-16" position="absolute">
+										<NuxtPage/>
 									</n-layout-content>
 
 									<n-layout-footer class="p-2" position="absolute">
