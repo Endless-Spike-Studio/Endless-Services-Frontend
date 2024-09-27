@@ -49,7 +49,7 @@ const menus: MenuOption[] = [
 					default: () => 'Geometry Dash'
 				}),
 				key: '/endless-proxy/geometry-dash',
-				icon: () =>h(NImage, {
+				icon: () => h(NImage, {
 					src: geometry_dash,
 					class: 'rounded',
 					imgProps: {
