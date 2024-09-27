@@ -4,6 +4,7 @@ import { Playlist, ServerProxy } from '@vicons/carbon'
 import { darkTheme, dateZhCN, lightTheme, type MenuOption, NIcon, NImage, useOsTheme, zhCN } from 'naive-ui'
 import logo from '~/assets/images/logo.webp'
 import newgrounds from '~/assets/images/newgrounds.webp'
+import isMobile from '~/core/shared/isMobile'
 
 const osTheme = useOsTheme()
 const theme = computed(() => {
@@ -85,16 +86,18 @@ const route = useRoute()
 					<n-message-provider>
 						<n-modal-provider>
 							<n-notification-provider>
-								<n-layout :native-scrollbar="false" position="absolute">
-									<n-layout-header position="absolute">
-										<n-menu :options="menus" mode="horizontal" :value="route.fullPath"/>
+								<n-layout native-scrollbar position="absolute">
+									<n-layout-header>
+										<n-menu :options="menus" :mode="(isMobile ? 'vertical' : 'horizontal')" :value="route.fullPath"/>
 									</n-layout-header>
 
-									<n-layout-content class="container mx-auto !top-16" position="absolute">
-										<NuxtPage/>
+									<n-layout-content class="container mx-auto h-full">
+										<div :class="{ 'px-2': isMobile }" class="py-2">
+											<NuxtPage/>
+										</div>
 									</n-layout-content>
 
-									<n-layout-footer class="p-2" position="absolute">
+									<n-layout-footer class="p-2">
 										<n-flex :size="0" align="center" vertical>
 											<n-text>&copy; 2024 - {{ new Date().getFullYear() }}</n-text>
 
