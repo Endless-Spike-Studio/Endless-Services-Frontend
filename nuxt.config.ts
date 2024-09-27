@@ -24,7 +24,9 @@ export default defineNuxtConfig({
 				]
 			}),
 			Components({
-				resolvers: [NaiveUiResolver()]
+				resolvers: [
+					NaiveUiResolver()
+				]
 			})
 		]
 	}
