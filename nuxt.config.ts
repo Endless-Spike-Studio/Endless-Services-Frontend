@@ -5,6 +5,11 @@ import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 export default defineNuxtConfig({
 	ssr: false,
 	srcDir: 'src',
+	router: {
+		options: {
+			hashMode: true
+		}
+	},
 	modules: [
 		'@unocss/nuxt'
 	],
