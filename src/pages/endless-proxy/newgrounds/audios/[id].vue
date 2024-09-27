@@ -9,7 +9,7 @@ const request = useFetch(`/api/EndlessProxy/Newgrounds/Audios/${route.params.id}
 </script>
 
 <template>
-	<n-card class="w-1/2 mx-auto">
+	<n-card class="sm:w-1/2 mx-auto">
 		<template v-if="(request.status.value === 'success')">
 			<n-descriptions :columns="1" label-placement="left" size="0">
 				<n-descriptions-item label="缓存 ID">{{ request.data.value.id }}</n-descriptions-item>
