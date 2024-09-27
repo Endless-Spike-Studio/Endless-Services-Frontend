@@ -4,6 +4,7 @@ import { Playlist, ServerProxy } from '@vicons/carbon'
 import { darkTheme, dateZhCN, lightTheme, type MenuOption, NIcon, NImage, useOsTheme, zhCN } from 'naive-ui'
 import logo from '~/assets/images/logo.webp'
 import newgrounds from '~/assets/images/newgrounds.webp'
+import geometry_dash from '~/assets/images/geometry_dash.webp'
 import isMobile from '~/core/shared/isMobile'
 
 const osTheme = useOsTheme()
@@ -41,6 +42,21 @@ const menus: MenuOption[] = [
 			component: ServerProxy
 		}),
 		children: [
+			{
+				label: () => h(RouterLink, {
+					to: '/endless-proxy/geometry-dash'
+				}, {
+					default: () => 'Geometry Dash'
+				}),
+				key: '/endless-proxy/geometry-dash',
+				icon: () =>h(NImage, {
+					src: geometry_dash,
+					class: 'rounded',
+					imgProps: {
+						class: 'size-8'
+					}
+				})
+			},
 			{
 				label: 'Newgrounds',
 				key: '/endless-proxy/newgrounds',
