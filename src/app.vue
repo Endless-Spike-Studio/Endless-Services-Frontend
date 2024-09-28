@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { RouterLink } from '#vue-router'
-import { Playlist, ServerProxy } from '@vicons/carbon'
+import { NetworkPublic, Playlist, ServerProxy } from '@vicons/carbon'
 import { darkTheme, dateZhCN, lightTheme, type MenuOption, NIcon, NImage, useOsTheme, zhCN } from 'naive-ui'
+import geometry_dash from '~/assets/images/geometry_dash.webp'
 import logo from '~/assets/images/logo.webp'
 import newgrounds from '~/assets/images/newgrounds.webp'
-import geometry_dash from '~/assets/images/geometry_dash.webp'
 import isMobile from '~/core/shared/isMobile'
 
 const osTheme = useOsTheme()
@@ -55,7 +55,20 @@ const menus: MenuOption[] = [
 					imgProps: {
 						class: 'size-8'
 					}
-				})
+				}),
+				children: [
+					{
+						label: () => h(RouterLink, {
+							to: '/endless-proxy/geometry-dash/network'
+						}, {
+							default: () => '网络日志'
+						}),
+						key: '/endless-proxy/geometry-dash/network',
+						icon: () => h(NIcon, {
+							component: NetworkPublic
+						})
+					}
+				]
 			},
 			{
 				label: 'Newgrounds',
