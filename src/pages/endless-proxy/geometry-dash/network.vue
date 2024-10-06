@@ -22,64 +22,85 @@ const logs = ref<Response[]>([])
 tryOnMounted(async () => {
 	await until(request.status).toBe('success')
 
-	const echo = new Echo({
-		Pusher,
-		...request.data.value
-	})
-
-	const channel = echo.channel(request.data.value.channel.name)
-
-	channel.listen(`.${request.data.value.event}`, async data => {
-		const request = useFetch(`/api/EndlessProxy/GeometryDash/network/${data.key}`, {
-			retry: false,
-			baseURL: import.meta.env.VITE_APP_BASE_URL,
-			responseType: 'json'
+	if (request.data.value.enabled) {
+		const echo = new Echo({
+			Pusher,
+			...request.data.value
 		})
 
-		await until(request.status).toBe('success')
+		const channel = echo.channel(request.data.value.channel.name)
 
-		logs.value.push({
-			...request.data.value,
-			log_at: new Date().toLocaleString()
+		channel.listen(`.${request.data.value.event}`, async data => {
+			const request = useFetch(`/api/EndlessProxy/GeometryDash/network/${data.key}`, {
+				retry: false,
+				baseURL: import.meta.env.VITE_APP_BASE_URL,
+				responseType: 'json'
+			})
+
+			await until(request.status).toBe('success')
+
+			logs.value.push({
+				...request.data.value,
+				log_at: new Date().toLocaleString()
+			})
 		})
-	})
+	}
 })
 </script>
 
 <template>
 	<n-card title="网络日志">
-		<n-list bordered>
-			<template v-for="log in logs">
-				<n-list-item>
-					<n-collapse>
-						<n-collapse-item :title="log.path">
-							<template #header-extra>
-								<n-text>{{ log.log_at }}</n-text>
-							</template>
-
-							<n-flex vertical size="small">
-								<n-flex vertical :size="0">
-									<template v-for="(value, key) in log.headers">
-										<n-text :depth="3">{{ key }}: {{ value.join(', ') }}</n-text>
+		<template v-if="(request.status.value === 'success')">
+			<template v-if="request.data.value.enabled">
+				<n-list bordered>
+					<template v-for="log in logs">
+						<n-list-item>
+							<n-collapse>
+								<n-collapse-item :title="log.path">
+									<template #header-extra>
+										<n-text>{{ log.log_at }}</n-text>
 									</template>
-								</n-flex>
 
-								<div/>
+									<n-flex vertical size="small">
+										<n-flex vertical :size="0">
+											<template v-for="(value, key) in log.headers">
+												<n-text :depth="3">{{ key }}: {{ value.join(', ') }}</n-text>
+											</template>
+										</n-flex>
 
-								<n-text :depth="3">{{ Object.entries(log.data).map(([key, value]) => `${key}=${value}`).join('&') }}</n-text>
-							</n-flex>
+										<div/>
 
-							<div class="mt-5">
-								<n-text>{{ log.response }}</n-text>
-							</div>
-						</n-collapse-item>
-					</n-collapse>
-				</n-list-item>
+										<n-text :depth="3">{{ Object.entries(log.data).map(([key, value]) => `${key}=${value}`).join('&') }}</n-text>
+									</n-flex>
+
+									<div class="mt-5">
+										<n-text>{{ log.response }}</n-text>
+									</div>
+								</n-collapse-item>
+							</n-collapse>
+						</n-list-item>
+					</template>
+
+					<n-list-item v-if="logs.length <= 0">
+						<n-empty/>
+					</n-list-item>
+				</n-list>
 			</template>
 
-			<n-list-item v-if="logs.length <= 0">
-				<n-empty/>
-			</n-list-item>
-		</n-list>
+			<template v-else>
+				<n-result status="error" title="未启用" size="small"/>
+			</template>
+		</template>
+
+		<template v-if="(request.status.value === 'pending')">
+			<n-flex vertical align="center" :size="0">
+				<n-spin size="large"/>
+				<n-h2>加载中</n-h2>
+			</n-flex>
+		</template>
+
+		<template v-if="(request.status.value === 'error')">
+			<n-result status="error" title="出错了" size="small"/>
+		</template>
 	</n-card>
 </template>
