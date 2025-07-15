@@ -63,7 +63,10 @@ const request = id.value !== null ? useFetch<{
 <template>
 	<div class="container mx-auto">
 		<div class="flex flex-col gap-2.5">
-			<InputNumber v-model="id" :step="1" :use-grouping="false" fluid/>
+			<IftaLabel>
+				<InputNumber v-model="id" :step="1" :use-grouping="false" fluid />
+				<label>ID</label>
+			</IftaLabel>
 
 			<Panel v-if="request !== null" :dt="{ 'header.padding': '0.5rem' }">
 				<template v-if="(request.status.value === 'idle')">
