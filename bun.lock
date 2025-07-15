@@ -4,6 +4,8 @@
     "": {
       "name": "nuxt-app",
       "devDependencies": {
+        "@iconify-json/ant-design": "^1.2.5",
+        "@iconify-json/carbon": "^1.2.10",
         "@primeuix/themes": "^1.2.1",
         "@primevue/forms": "^4.3.6",
         "@primevue/nuxt-module": "^4.3.6",
@@ -143,6 +145,10 @@
     "@esbuild/win32-x64": ["@esbuild/win32-x64@0.25.6", "", { "os": "win32", "cpu": "x64" }, "sha512-NgJPHHbEpLQgDH2MjQu90pzW/5vvXIZ7KOnPyNBm92A6WgZ/7b6fJyUBjoumLqeOQQGqY2QjQxRo97ah4Sj0cA=="],
 
     "@fastify/busboy": ["@fastify/busboy@3.1.1", "", {}, "sha512-5DGmA8FTdB2XbDeEwc/5ZXBl6UbBAyBOOLlPuBnZ/N1SwdH9Ii+cOX3tBROlDgcTXxjOYnLMVoKk9+FXAw0CJw=="],
+
+    "@iconify-json/ant-design": ["@iconify-json/ant-design@1.2.5", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-SYxhrx1AFq2MBcXk77AERYz2mPhLQes1F0vtvG64+dJZWyge9studXo7MiR8PPeLjRjZdWRrReRbxiwdRMf70Q=="],
+
+    "@iconify-json/carbon": ["@iconify-json/carbon@1.2.10", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-Z+psKjwGZ9wZu+mVOStmIqHux1OWc8AtDiJ4eHmOkbcW5SMoGVtsQ6LWGJcYguT+9q9YgGihUTvHEnQSPWKGiQ=="],
 
     "@iconify/types": ["@iconify/types@2.0.0", "", {}, "sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg=="],
 
