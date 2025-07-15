@@ -5,7 +5,7 @@ definePageMeta({
 </script>
 
 <template>
-	<div class="container mx-auto">
+	<div class="container mx-auto mt-10">
 		<div class="flex flex-col items-center gap-2.5">
 			<span class="text-6 fw-bold">提供了一些好用的 Geometry Dash 服务</span>
 			<Button as="a" class="no-underline fw-bold" href="https://github.com/Endless-Spike-Studio" label="Endless Spike Studio" variant="text"/>
