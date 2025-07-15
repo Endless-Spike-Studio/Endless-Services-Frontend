@@ -31,7 +31,7 @@ const menus = computed(() => {
 
 <template>
 	<div class="flex flex-col m-2.5">
-		<Menubar :model="menus" :pt="{ root: { class: 'lt-md:(flex justify-between)' }, rootList: { class: 'lt-md:mt-2.5' } }">
+		<Menubar :model="menus" :pt="{ root: { class: 'lt-md:(flex justify-between)' }, rootList: { class: 'lt-md:!mt-2.5' } }">
 			<template #start>
 				<div class="md:mr-5 flex items-center gap-2.5">
 					<Image :src="logo" image-class="w-10"/>
