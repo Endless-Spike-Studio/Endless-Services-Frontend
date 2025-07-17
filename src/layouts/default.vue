@@ -34,8 +34,8 @@ const menus = computed(() => {
 		<Menubar :model="menus" :pt="{ root: { class: 'lt-md:(flex justify-between)' }, rootList: { class: 'lt-md:!mt-2.5' } }">
 			<template #start>
 				<div class="md:mr-5 flex items-center gap-2.5">
-					<Image :src="logo" image-class="w-10"/>
-					<span class="text-5 fw-extrabold">Endless Services</span>
+					<Image :src="logo" image-class="h-8"/>
+					<span class="text-4 fw-extrabold">Endless Services</span>
 				</div>
 			</template>
 		</Menubar>
