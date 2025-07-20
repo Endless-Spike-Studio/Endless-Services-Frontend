@@ -196,12 +196,12 @@ const sortSelectOptions = [
 					</IftaLabel>
 
 					<IftaLabel>
-						<InputNumber v-model="form.filter.id" :min="1" :step="1" allow-empty/>
+						<InputNumber v-model="form.filter.id" :min="1" :step="1" :use-grouping="false" allow-empty/>
 						<label>ID</label>
 					</IftaLabel>
 
 					<IftaLabel>
-						<InputNumber v-model="form.filter.song_id" :min="1" :step="1" allow-empty/>
+						<InputNumber v-model="form.filter.song_id" :min="1" :step="1" :use-grouping="false" allow-empty/>
 						<label>歌曲 ID</label>
 					</IftaLabel>
 
@@ -211,12 +211,12 @@ const sortSelectOptions = [
 					</IftaLabel>
 
 					<IftaLabel>
-						<InputNumber v-model="form.filter.size_gt" :min="0" :step="0.01" allow-empty suffix="MB"/>
+						<InputNumber v-model="form.filter.size_gt" :min="0" :step="0.01" :use-grouping="false" allow-empty suffix="MB"/>
 						<label>歌曲文件大小最小限制</label>
 					</IftaLabel>
 
 					<IftaLabel>
-						<InputNumber v-model="form.filter.size_lt" :min="0" :step="0.01" allow-empty suffix="MB"/>
+						<InputNumber v-model="form.filter.size_lt" :min="0" :step="0.01" :use-grouping="false" allow-empty suffix="MB"/>
 						<label>歌曲文件大小最大限制</label>
 					</IftaLabel>
 
