@@ -141,15 +141,15 @@ const isDisabledSelectOptions = [
 const sorter = ref<string | null>(null)
 
 watch(sorter, newSorter => {
-	if (newSorter === null) {
-		Object.keys(form.value.sort)
-			.forEach(key => {
-				if (key in form.value.sort) {
-					// @ts-ignore
-					form.value.sort[key] = null
-				}
-			})
+	Object.keys(form.value.sort)
+		.forEach(key => {
+			if (key in form.value.sort) {
+				// @ts-ignore
+				form.value.sort[key] = null
+			}
+		})
 
+	if (newSorter === null) {
 		return
 	}
 
