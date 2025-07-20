@@ -19,7 +19,10 @@ definePageMeta({
 			</Panel>
 
 			<Panel class="w-full" header="在线工具">
-				<Button icon="i-ant-design:search-outlined" label="Geometry Dash 歌曲查询" severity="secondary" @click="navigateTo({ path: 'endless_proxy/geometry_dash/song' })"/>
+				<div class="flex gap-2.5">
+					<Button icon="i-ant-design:info-circle-outlined" label="Geometry Dash 歌曲查询" severity="secondary" @click="navigateTo({ path: 'endless_proxy/geometry_dash/song' })"/>
+					<Button icon="i-ant-design:search-outlined" label="Geometry Dash 歌曲搜索" severity="secondary" @click="navigateTo({ path: 'endless_proxy/geometry_dash/song/search' })"/>
+				</div>
 			</Panel>
 		</div>
 	</div>
